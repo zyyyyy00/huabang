@@ -1,0 +1,303 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+		
+		.blackBlock {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to bottom, #7A9ABB 60%, rgba(122,154,187,0.90) 100%);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+        }
+        .pageTitle {
+            position: absolute;
+            left: 40px;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            opacity: 0.95;
+        }
+        .homeLink, .mediaList, .aboutUs, .memberList, .contactUs {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%); /* 垂直居中 */
+            color: white;
+            text-decoration: none; /* 去掉下划线 */
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .homeLink {
+            right: 450px;
+        }
+        .mediaList {
+            right: 350px;
+        }
+        .aboutUs {
+            right: 250px;
+        }
+        .memberList {
+            right: 150px;
+        }
+        .contactUs {
+            right: 50px;
+        }
+        
+        .titleBlock {
+            position: absolute;
+            top: 60px;
+            height: 500px;
+            width: 100vw; /* 确保宽度为 100% */
+            background-color: #abcdef;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start; /* Align items to the left */
+            padding-left: 0px; /* Keep left padding for titles */
+            left: 0; /* 确保它从屏幕最左边开始 */
+            right: 0; /* 确保它一直延伸到屏幕最右边 */
+            margin: 0; /* 取消可能的默认 margin */
+        }
+        .webTitle {
+            margin: 0;
+            position: relative;
+            left: 10%;
+        }
+        #mainTitle {
+            font-weight: bold;
+            font-size: 40px;
+            color: white;
+            margin-top: -10px;
+            margin-bottom: 10px; /* Adds space below the main title */
+        }
+        #subTitle {
+            font-size: 20px;
+            color: white;
+        }
+        .titleImage {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);/* Vertically center the image */
+            right: 5%; /* Keep horizontal position unchanged */
+            width: 560px;
+            height: 400px;
+            filter: invert(1) brightness(4); /* Invert colors and increase brightness for a white effect */
+        }
+        .divideBlock {
+            position: absolute;
+            top: 500px;
+            width: 100%;
+            left: 0px;
+            height: 15px;
+            background-color: #abcdef;
+            opacity: 0.3;
+        }
+        
+        .title {
+            position: absolute;
+            top: 600px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 25px;
+            color:darkblue;
+            font-weight: bold;
+            line-height: 10px;
+        }
+        .engTitle {font-size: 20px;}
+        .rec {
+            position: absolute;
+            top: 635px;
+            height: 10px;
+            width: 30px;         
+            background-color: darkblue;
+            opacity: 0.8;
+        }
+        #recLeft {left: 40%;}
+        #recRight {right: 40%;}
+        
+        .para {
+            position: absolute;
+            top: 700px;
+            left: 50%;
+            width: 70%;
+            transform: translateX(-50%);
+            text-align: left;
+            text-indent: 2em;
+            font-size: 20px;
+            line-height: 35px;
+        }
+
+        .echartsWorld {
+            position: relative;
+            margin-top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1200px; 
+            height: 800px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="blackBlock">
+        <a href="welcome.html" class="homeLink">首&nbsp; &nbsp;页</a>
+		<a href="welcome.html" class="mediaList">媒体列表</a> 
+		<a href="welcome.html" class="aboutUs">功能简介</a>
+		<a href="welcome.html" class="memberList">项目成员</a>
+		<a href="welcome.html" class="contactUs">联系我们</a> 
+		<p class="pageTitle" id="pageTitle">World Chinese Media Social Media Data Supervising System</p>
+    </div>
+    
+<div class="titleBlock">
+        <p class="webTitle" id="mainTitle">海外华文媒体社交媒体数据监测系统</p>
+        <p class="webTitle" id="subTitle">海外华文媒体社交媒体数据监测系统</p>
+        <img class="titleImage" src="social-media-2210580.png" alt="Social Media Image"/> 
+        <div class="divideBlock"></div>
+</div>
+    
+    <div>
+        <div class="rec" id="recLeft"></div>
+        <div class="rec" id="recRight"></div>
+        <div class="title" id="introTitle">
+            <p>系统介绍</p>
+            <p class="engTitle" id="aboutSys">ABOUT&nbsp;THE&nbsp;SYSTEM</p>      
+        </div>
+        <div class="para" id="intro">
+            <p>海外华文媒体一般指中国大陆地区以外的、以中文为主要语言的信息生产与传播机构。长久以来，海外华文媒体以其跨文化、跨地域的特性，成为全球化时代信息与传播市场的重要组成部分，发挥着中外民间文化交流和情感沟通的桥梁作用。在当今世界百年未有之大变局的时代语境中，海外华文媒体的作用愈发独特而重要。</p>
+            <p>海外华文媒体社交媒体数据监测系统（World Chinese Media Social Media Data Supervising System）收录了来自全球58个国家和地区的358家海外华文媒体在脸书（Facebook）、推特（X，原Twitter）、微博、微信四个社交媒体平台上开设的共计超过1000个账号,通过数据抓取技术获取账号的粉丝量、发文量、互动量等重要指标信息，经由数据处理技术和可视化技术加工，最终以直观的形式显示媒体的布局情况、数据走势等信息，从数据角度出发，以期给海外华文媒体提供更多元的参考和支持。</p>
+            <div class="echartsWorld" id="echartsWorld"></div>
+        </div>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script>
+        var myChart = echarts.init(document.getElementById('echartsWorld'));
+
+        // 加载 JSON 并绘制地图
+        myChart.showLoading();
+        $.get('./worldZH.json', function (worldJson) {
+            myChart.hideLoading();
+            echarts.registerMap('world', worldJson);
+
+            var option = {
+                visualMap: {
+                    left: 'right',
+                    min: 0,
+                    max: 100,
+                    show: false,
+                    inRange: {
+                        color: [
+                            '#CCE2F7', 
+                            '#5C81A6',
+                            'rgba(190,32,32,1.00)' // 红色用于中国
+                        ]
+                    },
+                    calculable: true
+                },
+                tooltip: {
+                    trigger: 'item',
+                    showDelay: 0,
+                    show:true,
+                    textStyle: {
+                        padding: [0,0,0,0], // 删除内边距
+                        color:'#000'
+                    },
+                },
+                series: [{
+                    name: '华文媒体数量',
+                    type: 'map',
+                    roam: false,
+                    map: 'world',
+                    emphasis: {
+                        label: { show: false }
+                    },
+                    data: [
+                            { name: '阿根廷', value: 4 },
+                            { name: '阿联酋', value: 4 },
+                            { name: '埃及', value: 1 },
+                            { name: '爱尔兰', value: 2 },
+                            { name: '安哥拉', value: 1 },
+                            { name: '奥地利', value: 1 },
+                            { name: '澳大利亚', value: 28 },
+                            { name: '巴基斯坦', value: 1 },
+                            { name: '巴拿马', value: 1 },
+                            { name: '巴西', value: 1 },
+                            { name: '比利时', value: 2 },
+                            { name: '波兰', value: 2 },
+                            { name: '博茨瓦纳', value: 1 },
+                            { name: '德国', value: 3 },
+                            { name: '俄罗斯', value: 2 },
+                            { name: '法国', value: 5 },
+                            { name: '菲律宾', value: 5 },
+                            { name: '斐济', value: 1 },
+                            { name: '格鲁吉亚', value: 1 },
+                            { name: '韩国', value: 1 },
+                            { name: '荷兰', value: 5 },
+                            { name: '吉尔吉斯斯坦', value: 1 },
+                            { name: '加拿大', value: 51 },
+                            { name: '加纳', value: 1 },
+                            { name: '柬埔寨', value: 5 },
+                            { name: '捷克', value: 2 },
+                            { name: '肯尼亚', value: 1 },
+                            { name: '老挝', value: 1 },
+                            { name: '罗马尼亚', value: 2 },
+                            { name: '马达加斯加', value: 1 },
+                            { name: '马来西亚', value: 11 },
+                            { name: '毛里求斯', value: 1 },
+                            { name: '美国', value: 50 },
+                            { name: '秘鲁', value: 2 },
+                            { name: '缅甸', value: 4 },
+                            { name: '墨西哥', value: 1 },
+                            { name: '南非', value: 8 },
+                            { name: '尼日利亚', value: 2 },
+                            { name: '葡萄牙', value: 2 },
+                            { name: '日本', value: 20 },
+                            { name: '瑞典', value: 4 },
+                            { name: '瑞士', value: 2 },
+                            { name: '苏里南', value: 1 },
+                            { name: '泰国', value: 6 },
+                            { name: '委内瑞拉', value: 1 },
+                            { name: '乌克兰', value: 1 },
+                            { name: '西班牙', value: 4 },
+                            { name: '希腊', value: 2 },
+                            { name: '新加坡', value: 3 },
+                            { name: '新西兰', value: 12 },
+                            { name: '匈牙利', value: 2 },
+                            { name: '意大利', value: 11 },
+                            { name: '印度尼西亚', value: 6 },
+                            { name: '英国', value: 9 },
+                            { name: '智利', value: 1 },
+                            { name: '中国澳门', value: 7 },
+                            { name: '中国台湾', value: 23 },
+                            { name: '中国香港', value: 25 },
+                            { name: '中国', value: 100, tooltip: {show: false}, emphasis:{label: {show: true}}} // 确保中国显示为红色
+                    ]
+                }]
+            };
+            myChart.setOption(option);
+        });
+    </script>
+</body>
+</html>
