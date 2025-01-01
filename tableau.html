@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+			background-color: rgba(189,217,223,1.00);
+            background-size: cover; /* 背景图片覆盖整个页面 */
+            background-position: center; /* 背景图片居中 */
+            background-repeat: no-repeat; /* 防止图片重复 */
+            margin: 0;
+            padding: 0;
+            text-align: center; /* 让内容水平居中 */
+            position: relative;
+        }
+        .blackBlock {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to bottom, rgba(63,123,136,1.00) 0%, rgba(66,126,139,0.70) 100%); /* 渐变效果 */
+            z-index: 10;
+            display: flex;
+            align-items: center; /* 使内容在黑色块中垂直居中 */
+        }
+		.pageTitle {
+            position: absolute;
+            left: 25px;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .homeLink, .mediaList, .aboutUs, .memberList, .contactUs {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%); /* 垂直居中 */
+            color: white;
+            text-decoration: none; /* 去掉下划线 */
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .homeLink {
+            right: 450px;
+        }
+        .mediaList {
+            right: 350px;
+        }
+        .aboutUs {
+            right: 250px;
+        }
+        .memberList {
+            right: 150px;
+        }
+        .contactUs {
+            right: 50px;
+        }
+        .tableauContainer {
+            position: relative;
+            width: calc(100% - 40px); /* 减去左右各20px的间距 */
+            margin: 0 auto; /* 水平居中 */
+            margin-top: 110px; /* 距离页面顶部的距离 */
+			margin-bottom: 50px;
+            padding-top: 0px; /* 增加内边距以避免重叠 */
+            box-sizing: border-box; /* 确保 padding 包含在元素的宽度中 */
+			box-shadow: 0 2px 4px rgba(0,0,0,0.80);
+        }
+        .tableauPlaceholder {
+            width: 100%;
+            height: calc(100vh - 150px); /* 减去顶部和提示的空间 */
+            background-color: transparent; /* 设置背景颜色为透明 */
+        }
+		
+        .tooltip {
+            position: absolute;
+            top: -25px;
+            right: 0px; /* 将提示文本放在右边 */
+            font-size: 14px;
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.3s ease; /* 添加过渡效果 */
+            display: none; /* 初始隐藏 */
+        }
+
+        .tooltip:hover {
+			color: #f5f5f5;
+			text-shadow: 0 2px 4px rgba(100,100,100,0.2);
+        }
+
+        .tooltip:hover::after {
+            content: "这里是一段很长的使用说明文字，用户可以在此处阅读详细信息。为了确保内容可读性，建议使用黑字白底，增加间距和可读性。使用说明可以包含多个段落和说明。";
+            position: absolute;
+            top: 30px; /* 弹窗在文本下面 */
+            right: 0px; /* 调整弹窗相对于提示文本的位置 */
+            width: 300px; /* 设置较大的宽度 */
+            background: #fff; /* 白底 */
+            color: #000; /* 黑字 */
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 12px;
+            line-height: 1.5;
+            white-space: normal; /* 允许换行 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            border: 1px solid #333; /* 黑色边框 */
+            z-index: 10; /* 使弹窗显示在前面 */
+        }
+		.uploadTime {
+            position: absolute;
+            top: -25px;
+            left: 0px; 
+            font-size: 14px;
+            color: #fff;
+            display: none; /* 初始隐藏 */
+        }
+
+        .loadingMessage {
+            font-size: 18px;
+            color: #ffffff;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="blackBlock">
+        <a href="welcome.html" class="homeLink">首&nbsp; &nbsp;页</a> <!-- 在黑色块上显示“首页”并点击跳转 -->
+		<a href="welcome.html" class="mediaList">媒体列表</a> 
+		<a href="welcome.html" class="aboutUs">关于本站</a>
+		<a href="welcome.html" class="memberList">项目成员</a>
+		<a href="welcome.html" class="contactUs">联系我们</a> 
+		<p class="pageTitle">这里是标题标题标题标题标题</p>
+    </div>
+    
+    <div class="tableauContainer">
+		<div class="uploadTime" id="uploadTime">数据更新时间：2023年3月14日</div>
+        <div class="tooltip" id="tooltip">如何使用？</div> <!-- 使用说明文本放在 Tableau 右边 -->
+
+        <!-- 加载提示 -->
+        <div class="loadingMessage" id="loadingMessage">加载可能需要一段时间，请耐心等候...</div>
+
+        <div class="tableauPlaceholder" id="viz1726215414323" style="display: none;">
+            <noscript>
+                <a href="#"><img alt="仪表板" src="https://public.tableau.com/static/images/03/0314_17207084276800/sheet0/1_rss.png" style="border: none" /></a>
+            </noscript>
+            <object class="tableauViz" style="display:none;">
+                <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+                <param name="embed_code_version" value="3" />
+                <param name="site_root" value="" />
+                <param name="name" value="0314_17207084276800&#47;sheet0" />
+                <param name="tabs" value="no" />
+                <param name="toolbar" value="yes" />
+                <param name="static_image" value="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;03&#47;0314_17207084276800&#47;sheet0&#47;1.png" />
+                <param name="animate_transition" value="yes" />
+                <param name="display_static_image" value="yes" />
+                <param name="display_spinner" value="yes" />
+                <param name="display_overlay" value="yes" />
+                <param name="display_count" value="yes" />
+                <param name="language" value="zh-CN" />
+            </object>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            try {
+                var divElement = document.getElementById("viz1726215414323");
+                var vizElement = divElement.getElementsByTagName("object")[0];
+                var loadingMessage = document.getElementById("loadingMessage");
+                var uploadTime = document.getElementById("uploadTime");
+                var tooltip = document.getElementById("tooltip");
+
+                if (divElement.offsetWidth > 800) {
+                    vizElement.style.width = "100%";
+                    vizElement.style.height = (divElement.offsetWidth * 0.75) + "px";
+                } else if (divElement.offsetWidth > 500) {
+                    vizElement.style.width = "100%";
+                    vizElement.style.height = (divElement.offsetWidth * 0.75) + "px";
+                } else {
+                    vizElement.style.width = "100%";
+                    vizElement.style.height = "1927px";
+                }
+
+                var scriptElement = document.createElement("script");
+                scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
+                
+                // 当 Tableau 加载完成时，隐藏加载提示并显示 Tableau 和其他元素
+                scriptElement.onload = function() {
+                    loadingMessage.style.display = "none"; // 隐藏加载提示
+                    divElement.style.display = "block"; // 显示 Tableau
+                    uploadTime.style.display = "block"; // 显示更新时间
+                    tooltip.style.display = "block"; // 显示使用提示
+                };
+                
+                vizElement.parentNode.insertBefore(scriptElement, vizElement);
+
+            } catch (error) {
+                console.error("Error loading Tableau visualization:", error);
+            }
+        });
+    </script>
+</body>
+</html>

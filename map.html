@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ECharts</title>
+    <!-- 引入刚刚下载的 ECharts 文件 --> 
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+</head>
+<body>
+    <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+    <div id="main" style="width: 600px; height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的 dom，初始化 echarts 实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        myChart.showLoading();
+        // 使用本地 JSON 文件路径
+        $.get('./worldZH.json', function (worldJson) {
+            myChart.hideLoading();
+            echarts.registerMap('world', worldJson);
+
+            var option = {
+                visualMap: {
+                    left: 'right',
+                    min: 0,
+                    max: 100,
+                    show: false,
+                    inRange: {
+                        color: [
+                            'rgba(175,223,234,1.00)', 
+                            'rgba(86,154,169,1.00)',
+                            'rgba(190,32,32,1.00)' // 红色用于中国
+                        ]
+                    },
+                    calculable: true
+                },
+                series: [
+                    {
+                        name: 'World PopEstimates',
+                        type: 'map',
+                        roam: false,
+                        map: 'world',
+                        emphasis: {
+                            label: {
+                                show: true
+                            }
+                        },
+                        data: [
+                            { name: '阿根廷', value: 4 },
+                            { name: '阿联酋', value: 4 },
+                            { name: '埃及', value: 1 },
+                            { name: '爱尔兰', value: 2 },
+                            { name: '安哥拉', value: 1 },
+                            { name: '奥地利', value: 1 },
+                            { name: '澳大利亚', value: 28 },
+                            { name: '巴基斯坦', value: 1 },
+                            { name: '巴拿马', value: 1 },
+                            { name: '巴西', value: 1 },
+                            { name: '比利时', value: 2 },
+                            { name: '波兰', value: 2 },
+                            { name: '博茨瓦纳', value: 1 },
+                            { name: '德国', value: 3 },
+                            { name: '俄罗斯', value: 2 },
+                            { name: '法国', value: 5 },
+                            { name: '菲律宾', value: 5 },
+                            { name: '斐济', value: 1 },
+                            { name: '格鲁吉亚', value: 1 },
+                            { name: '韩国', value: 1 },
+                            { name: '荷兰', value: 5 },
+                            { name: '吉尔吉斯斯坦', value: 1 },
+                            { name: '加拿大', value: 51 },
+                            { name: '加纳', value: 1 },
+                            { name: '柬埔寨', value: 5 },
+                            { name: '捷克', value: 2 },
+                            { name: '肯尼亚', value: 1 },
+                            { name: '老挝', value: 1 },
+                            { name: '罗马尼亚', value: 2 },
+                            { name: '马达加斯加', value: 1 },
+                            { name: '马来西亚', value: 11 },
+                            { name: '毛里求斯', value: 1 },
+                            { name: '美国', value: 50 },
+                            { name: '秘鲁', value: 2 },
+                            { name: '缅甸', value: 4 },
+                            { name: '墨西哥', value: 1 },
+                            { name: '南非', value: 8 },
+                            { name: '尼日利亚', value: 2 },
+                            { name: '葡萄牙', value: 2 },
+                            { name: '日本', value: 20 },
+                            { name: '瑞典', value: 4 },
+                            { name: '瑞士', value: 2 },
+                            { name: '苏里南', value: 1 },
+                            { name: '泰国', value: 6 },
+                            { name: '委内瑞拉', value: 1 },
+                            { name: '乌克兰', value: 1 },
+                            { name: '西班牙', value: 4 },
+                            { name: '希腊', value: 2 },
+                            { name: '新加坡', value: 3 },
+                            { name: '新西兰', value: 12 },
+                            { name: '匈牙利', value: 2 },
+                            { name: '意大利', value: 11 },
+                            { name: '印度尼西亚', value: 6 },
+                            { name: '英国', value: 9 },
+                            { name: '智利', value: 1 },
+                            { name: '中国澳门', value: 7 },
+                            { name: '中国台湾', value: 23 },
+                            { name: '中国香港', value: 25 },
+                            { name: '中国', value: 100 } // 确保中国显示为红色
+                        ]
+                    }
+                ]
+            };
+            myChart.setOption(option);
+        });
+
+        // 注意：不需要在这里再调用 myChart.setOption(option);
+    </script>
+</body>
+</html>
